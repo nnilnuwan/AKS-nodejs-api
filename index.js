@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Welcome to the Simple Node.js API - ci/cd check');
+  res.send('Welcome to the Simple Node.js API v:0.1');
 });
 
 app.get('/api', (req, res) => {
