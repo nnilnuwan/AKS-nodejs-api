@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Welcome to the Simple Node.js API');
+  res.send('Welcome to the Simple Node.js API2002');
 });
 
 app.get('/api', (req, res) => {
