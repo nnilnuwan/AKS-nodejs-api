@@ -73,7 +73,7 @@ pipeline {
         stage("Deploy to AKS cluster") {
             steps {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                    sh "kubectl set image deployment/nodejs-api-deployment nodejs-api-container=${DOCKER_IMAGE}:${VERSION} -n nodejs-api"
+                    sh "kubectl apply -f node-api-deployment.yml -n nodejs-api"
                 }
             }
         }
