@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-api-deployment
+  namespace: nodejs-api  # Specify the correct namespace for the deployment
+  labels:
+    app: nodejs-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs-api
+  template:
+    metadata:
+      labels:
+        app: nodejs-api
+    spec:
+      containers:
+      - name: nodejs-api
+        image: nilnuwan/nodejs-api:v0.2
+        ports:
+        - containerPort: 3000
+          # imagePullSecrets:
+          # - name: acr-secret  # Reference the secret in the same namespace
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-api-service
+  namespace: nodejs-api  # Specify the correct namespace for the service
+spec:
+  selector:
+    app: nodejs-api
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: LoadBalancer
+
