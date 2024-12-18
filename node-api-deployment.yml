@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nodejs-api
-        image: nilnuwan/nodejs-api:v0.2
+        image: nilnuwan/nodejs-api:LTS-0.1
         ports:
         - containerPort: 3000
           # imagePullSecrets:
